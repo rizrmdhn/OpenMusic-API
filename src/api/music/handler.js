@@ -205,9 +205,19 @@ class MusicHandler {
         }
     }
 
-    async getSongHandler() {
+    async getSongHandler(request, h) {
         try {
-            const songs = await this._songservice.getSong();
+            const { title, performer } = request.query;
+            let songs = await this._songservice.getSong();
+
+            if (title !== undefined) {
+                songs = songs.filter((songs) => songs.title.toLowerCase().includes(title.toLowerCase()));
+            }
+
+            if (performer !== undefined) {
+                songs = songs.filter((songs) => songs.performer.toLowerCase().includes(performer.toLowerCase()));
+            }
+
             return {
                 status: 'success',
                 data: {
