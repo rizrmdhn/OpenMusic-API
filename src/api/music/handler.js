@@ -59,13 +59,31 @@ class MusicHandler {
     async getAlbumByIdHandler(request, h) {
         try {
             const { id } = request.params;
+            const albumId = id;
+
             const album = await this._albumService.getAlbumById(id);
+            const songs = await this._songservice.getSongByAlbumId(albumId);
+
+
+            if (songs.length !== 0) {
+                return {
+                    status: 'success',
+                    data: {
+                        album: {
+                            ...album,
+                            songs
+                        }
+                    },
+                };
+            }
             return {
                 status: 'success',
                 data: {
                     album,
                 },
             };
+
+
         } catch (error) {
             if (error instanceof ClientError) {
                 const response = h.response({

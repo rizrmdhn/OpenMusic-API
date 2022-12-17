@@ -45,6 +45,20 @@ class SongServices {
         return result.rows[0];
     }
 
+    async getSongByAlbumId(albumId) {
+        const query = {
+            text: 'SELECT id, title, performer FROM song WHERE "albumId" = $1',
+            values: [albumId],
+        };
+        const result = await this._pool.query(query);
+
+        if (!result.rows.length) {
+            return result.rows;
+        }
+
+        return result.rows;
+    }
+
     async editSongById(id, { title, year, genre, performer, duration, albumId }) {
         const query = {
             text: 'UPDATE song SET title = $1, year = $2, genre = $3, performer = $4, duration = $5, "albumId" = $6 WHERE id = $7 RETURNING id',
@@ -52,7 +66,6 @@ class SongServices {
         };
 
         const result = await this._pool.query(query);
-        console.log(result.row)
         if (!result.rows.length) {
             throw new NotFoundError('Gagal memperbarui song. Id tidak ditemukan');
         }
