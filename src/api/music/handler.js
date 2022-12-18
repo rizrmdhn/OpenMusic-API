@@ -1,9 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 const ClientError = require("../../exceptions/ClientError");
 
 
 class MusicHandler {
-    constructor(albumService, songservice, validator) {
-        this._albumService = albumService;
+    constructor(albumservice, songservice, validator) {
+        this._albumService = albumservice;
         this._songservice = songservice;
         this._validator = validator;
 
@@ -51,7 +52,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -100,7 +100,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -133,7 +132,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
 
@@ -163,7 +161,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -200,7 +197,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -211,11 +207,11 @@ class MusicHandler {
             let songs = await this._songservice.getSong();
 
             if (title !== undefined) {
-                songs = songs.filter((songs) => songs.title.toLowerCase().includes(title.toLowerCase()));
+                songs = songs.filter((song) => song.title.toLowerCase().includes(title.toLowerCase()));
             }
 
             if (performer !== undefined) {
-                songs = songs.filter((songs) => songs.performer.toLowerCase().includes(performer.toLowerCase()));
+                songs = songs.filter((song) => song.performer.toLowerCase().includes(performer.toLowerCase()));
             }
 
             return {
@@ -240,7 +236,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -271,7 +266,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -304,7 +298,6 @@ class MusicHandler {
                 message: error.message,
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }
@@ -333,7 +326,6 @@ class MusicHandler {
                 message: 'Maaf, terjadi kegagalan pada server kami.',
             });
             response.code(500);
-            console.error(error);
             return response;
         }
     }

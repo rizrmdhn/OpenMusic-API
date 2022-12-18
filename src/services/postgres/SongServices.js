@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const { nanoid } = require('nanoid');
 const { Pool } = require('pg');
 const InvariantError = require('../../exceptions/InvariantError');
@@ -10,7 +11,7 @@ class SongServices {
 
     async addSong({ title, year, genre, performer, duration, albumId }) {
 
-        const id = 'song-' + nanoid(16);
+        const id = `song-${nanoid(16)}`;
 
         const query = {
             text: 'INSERT INTO song VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id',

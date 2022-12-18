@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const { nanoid } = require('nanoid');
 const { Pool } = require('pg');
 const InvariantError = require('../../exceptions/InvariantError');
@@ -9,7 +10,7 @@ class AlbumServices {
     }
 
     async addAlbum({ name, year }) {
-        const id = 'album-' + nanoid(16);
+        const id = `album-${nanoid(16)}`;
 
         const query = {
             text: 'INSERT INTO album VALUES($1, $2, $3) RETURNING id',
@@ -32,7 +33,7 @@ class AlbumServices {
         };
         const result = await this._pool.query(query);
 
-        if (!result.rows.length) {
+        if (!result.rowCount) {
             throw new NotFoundError('Album tidak ditemukan');
         }
 
