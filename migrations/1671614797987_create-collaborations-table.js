@@ -1,9 +1,3 @@
-/* eslint-disable camelcase */
-
-/* eslint-disable camelcase */
-
-exports.shorthands = undefined;
-
 exports.up = (pgm) => {
     // membuat table collaborations
     pgm.createTable('collaborations', {

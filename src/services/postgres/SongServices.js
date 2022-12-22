@@ -51,11 +51,8 @@ class SongServices {
             text: 'SELECT id, title, performer FROM song WHERE "albumId" = $1',
             values: [albumId],
         };
+        
         const result = await this._pool.query(query);
-
-        if (!result.rowCount) {
-            return result.rows;
-        }
 
         return result.rows;
     }

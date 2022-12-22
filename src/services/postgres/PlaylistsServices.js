@@ -43,7 +43,7 @@ class PlaylistsServices {
         };
 
         const result = await this._pool.query(query);
-        
+
         return result.rows;
 
     }
@@ -110,7 +110,7 @@ class PlaylistsServices {
         const result = await this._pool.query(query);
 
         if (!result.rowCount) {
-            return result.rows;
+            throw new NotFoundError('Playlist tidak ditemukan');
         }
 
         return result.rows;
@@ -139,7 +139,7 @@ class PlaylistsServices {
     async verifyPlaylistAccess(playlistId, userId) {
         try {
             await this.verifyPlaylistOwner(playlistId, userId);
-            
+
         } catch (error) {
             if (error instanceof NotFoundError) {
                 throw error;

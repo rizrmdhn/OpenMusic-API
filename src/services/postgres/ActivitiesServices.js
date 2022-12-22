@@ -2,6 +2,7 @@
 const { nanoid } = require('nanoid');
 const { Pool } = require('pg');
 const InvariantError = require('../../exceptions/InvariantError');
+const NotFoundError = require('../../exceptions/NotFoundError');
 
 class ActivitiesServices {
     constructor() {
@@ -45,7 +46,7 @@ class ActivitiesServices {
         const result = await this._pool.query(query);
 
         if (!result.rowCount) {
-            return result.rows;
+            throw new NotFoundError('Album tidak ditemukan');
         }
 
         return result.rows;

@@ -1,7 +1,3 @@
-/* eslint-disable camelcase */
-
-exports.shorthands = undefined;
-
 exports.up = pgm => {
     pgm.addConstraint('song', 'fk_song.album.id', 'FOREIGN KEY("albumId") REFERENCES album(id) ON DELETE CASCADE');
     pgm.addConstraint('playlist', 'fk_playlist.owner_users.id', 'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE');
