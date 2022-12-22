@@ -37,7 +37,8 @@ class ActivitiesServices {
 			LEFT JOIN playlist_songs ON playlist_songs.playlist_id = playlist_song_activities.playlists_id
 			LEFT JOIN song ON song.id = playlist_song_activities.song_id
             WHERE playlist_song_activities.playlists_id = $1
-            GROUP BY users.id, playlist_song_activities.id, song.id`,
+            GROUP BY users.id, playlist_song_activities.id, song.id
+			ORDER BY playlist_song_activities.time ASC`,
             values: [id],
         };
 
