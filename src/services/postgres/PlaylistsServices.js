@@ -41,8 +41,11 @@ class PlaylistsServices {
             `,
             values: [owner],
         };
+
         const result = await this._pool.query(query);
+        
         return result.rows;
+
     }
 
     async getPlaylistById(id) {

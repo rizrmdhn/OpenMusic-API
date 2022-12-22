@@ -22,7 +22,7 @@ class SongHandler {
 
         const response = h.response({
             status: 'success',
-            message: 'Album berhasil ditambahkan',
+            message: 'Lagu berhasil ditambahkan',
             data: {
                 songId,
             },
@@ -71,7 +71,7 @@ class SongHandler {
 
         return {
             status: 'success',
-            message: 'Album berhasil diperbarui',
+            message: 'Lagu berhasil diperbarui',
         }
     }
 
@@ -80,7 +80,7 @@ class SongHandler {
         await this._songservice.deleteSongById(id);
         return {
             status: 'success',
-            message: 'Album berhasil dihapus'
+            message: 'Lagu berhasil dihapus'
         }
     }
 
