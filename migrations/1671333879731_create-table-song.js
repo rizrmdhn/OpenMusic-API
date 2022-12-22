@@ -33,8 +33,10 @@ exports.up = pgm => {
             notNull: false,
         },
     });
+
+    
 };
 
-exports.down = pgm => {
+exports.down = pgm => { 
     pgm.dropTable('song');
 };

@@ -17,12 +17,8 @@ exports.up = pgm => {
             notNull: false,
         },
     });
-
-    pgm.addConstraint('playlist_songs', 'fk_playlist_songs.playlist_id_playlist.id', 'FOREIGN KEY(playlist_id) REFERENCES playlist(id) ON DELETE CASCADE');
 };
 
 exports.down = pgm => {
-
-    pgm.dropConstraint('playlist_songs', 'fk_playlist_songs.playlist_id_playlist.id');
     pgm.dropTable('playlist_songs');
 };
