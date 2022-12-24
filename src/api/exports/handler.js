@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 class ExportsHandler {
     constructor(service, playlistsService, validator) {
         this._service = service;

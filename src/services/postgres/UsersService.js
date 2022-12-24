@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
 const { nanoid } = require('nanoid');

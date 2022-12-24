@@ -1,5 +1,4 @@
 exports.up = (pgm) => {
-    // membuat table collaborations
     pgm.createTable('playlist_song_activities', {
         id: {
             type: 'VARCHAR(50)',
@@ -27,12 +26,9 @@ exports.up = (pgm) => {
         }
     });
 
-
-    // memberikan constraint foreign key pada kolom playlists_id dan user_id terhadap playlists.id dan users.id
     pgm.addConstraint('playlist_song_activities', 'fk_playlist_song_activities.playlists_id_playlist.id', 'FOREIGN KEY(playlists_id) REFERENCES playlist(id) ON DELETE CASCADE');
 };
 
 exports.down = (pgm) => {
-    // menghapus tabel collaborations
     pgm.dropTable('playlist_song_activities');
 };

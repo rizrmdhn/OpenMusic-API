@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 class ActivitiessHandler {
     constructor(activitiesService, playlistsService) {
         this._activitiesService = activitiesService;

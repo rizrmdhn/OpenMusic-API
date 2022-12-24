@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
-
 class AlbumHandler {
     constructor(albumservice, songservice, validator) {
         this._albumService = albumservice;

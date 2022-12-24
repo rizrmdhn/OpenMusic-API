@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
-
 class UploadsHandler {
     constructor(service, albumService, validator) {
         this._service = service;

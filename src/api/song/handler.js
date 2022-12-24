@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
-
 class SongHandler {
     constructor(songservice, validator) {
         this._songservice = songservice;

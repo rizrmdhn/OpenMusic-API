@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
-
 class AlbumLikesHandler {
     constructor(service) {
         this._service = service;

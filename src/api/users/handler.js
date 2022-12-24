@@ -1,5 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-
 class UserHandler {
     constructor(service, validator) {
         this._service = service;
